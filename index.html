@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      The Caddy Hook — hang your food-waste caddy in the wheelie bin | Nifty
+      Prints
+    </title>
+    <meta
+      name="description"
+      content="A 3D-printed hook that hangs your brown food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Weather-resistant PETG, no tools needed, local pickup."
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Structured data for search engines (Product + Offer). Update "image" to a
+       full public URL and "url" to your live domain once deployed. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "The Caddy Hook",
+        "description": "A 3D-printed hook that hangs your brown food-waste caddy inside the garden-waste wheelie bin — off the ground, out of the way, and safe from birds and pests. Weather-resistant PETG, no tools or modifications needed.",
+        "image": "https://example.com/images/caddy-hook.jpg",
+        "brand": { "@type": "Brand", "name": "Nifty Prints" },
+        "material": "PETG",
+        "offers": {
+          "@type": "Offer",
+          "price": "5.00",
+          "priceCurrency": "GBP",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://example.com/",
+          "availableDeliveryMethod": "https://schema.org/OnSitePickup"
+        }
+      }
+    </script>
+
+    <!-- Stripe Buy Button script: required for the <stripe-buy-button> element below. -->
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  </head>
+  <body>
+    <header class="site-head">
+      <div class="brand">
+        <a class="wordmark" href="/"
+          >nifty prints<span class="wordmark__dot">.</span></a
+        >
+        <p class="brand__tagline">3D-printed fixes for everyday annoyances</p>
+      </div>
+      <p class="tag">made to order</p>
+    </header>
+
+    <main>
+      <!-- ===== Product card: duplicate this <article> to add more products later ===== -->
+      <article class="product">
+        <section class="hero">
+          <p class="eyebrow">3D printed · made to order</p>
+          <h1 class="hero__title">Keep birds out of<br />your food caddy.</h1>
+          <p class="hero__lede">
+            A 3D-printed hook that hangs your brown food-waste caddy neatly
+            inside the wheelie bin — off the ground, out of the way, and safe
+            from birds and pests. No tools, no modifications.
+          </p>
+
+          <figure class="photo-frame">
+            <img
+              class="photo"
+              src="images/caddy-hook.jpg"
+              alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
+              width="1500"
+              height="2000"
+            />
+            <figcaption class="spec">
+              PETG · weather-resistant · made to order
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="features" aria-label="What you get">
+          <ul class="features__list">
+            <li class="feature">
+              Fits standard food-waste caddies and wheelie bins
+            </li>
+            <li class="feature">
+              Strong, weather-resistant PETG — built for outdoors
+            </li>
+            <li class="feature">No tools or modifications needed</li>
+            <li class="feature">Keeps your bin area cleaner and tidier</li>
+            <li class="feature">Stops birds and pests emptying the caddy</li>
+          </ul>
+        </section>
+
+        <section class="proof" aria-label="In use">
+          <figure class="photo-frame">
+            <img
+              class="photo"
+              src="images/caddy-hook-in-use.jpg"
+              alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
+              width="1500"
+              height="2000"
+            />
+            <figcaption class="spec">
+              In place — caddy hung inside the wheelie bin, off the ground.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="buy" aria-label="Buy">
+          <!-- Keep this price matching the price set on the Stripe Buy Button. -->
+          <p class="price">
+            <span class="price__amount">£5</span>
+            <span class="price__unit">each</span>
+          </p>
+
+          <div class="buy__action">
+            <!-- Replace buy-button-id and publishable-key with the values from your
+               Stripe Dashboard (Payment Links → Buy button). Both are safe to be public. -->
+            <stripe-buy-button
+              buy-button-id="REPLACE_WITH_BUY_BUTTON_ID"
+              publishable-key="REPLACE_WITH_PUBLISHABLE_KEY"
+            >
+            </stripe-buy-button>
+          </div>
+
+          <p class="pickup">
+            Local pickup only. After you pay, I'll email you to arrange
+            collection.
+          </p>
+        </section>
+      </article>
+      <!-- ===== /Product card ===== -->
+    </main>
+
+    <footer class="site-foot">
+      <!-- Set up hello@niftyprints.co.uk (e.g. email forwarding at your registrar) once the domain is registered. -->
+      <p>
+        Questions?
+        <a href="mailto:hello@niftyprints.co.uk">hello@niftyprints.co.uk</a>
+      </p>
+    </footer>
+  </body>
+</html>
