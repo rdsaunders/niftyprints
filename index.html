@@ -103,16 +103,33 @@
             from birds and pests. No tools, no modifications.
           </p>
 
-          <figure class="photo-frame">
-            <img
-              class="photo"
-              src="images/caddy-hook.jpg"
-              alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
-              width="1500"
-              height="2000"
-            />
+          <figure class="gallery" aria-label="Product photos">
+            <ul class="gallery__track">
+              <li class="gallery__slide" id="photo-1">
+                <img
+                  class="photo"
+                  src="images/caddy-hook.jpg"
+                  alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
+                  width="1500"
+                  height="2000"
+                />
+              </li>
+              <li class="gallery__slide" id="photo-2">
+                <img
+                  class="photo"
+                  src="images/caddy-hook-in-use.jpg"
+                  alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
+                  width="1500"
+                  height="2000"
+                />
+              </li>
+            </ul>
+            <div class="gallery__dots" aria-label="Choose photo">
+              <a class="gallery__dot is-active" href="#photo-1" aria-label="Photo 1, studio shot"></a>
+              <a class="gallery__dot" href="#photo-2" aria-label="Photo 2, in use"></a>
+            </div>
             <figcaption class="spec">
-              PETG · weather-resistant · made to order
+              PETG · weather-resistant · made to order — swipe for more
             </figcaption>
           </figure>
         </section>
@@ -129,21 +146,6 @@
             <li class="feature">Keeps your bin area cleaner and tidier</li>
             <li class="feature">Stops birds and pests emptying the caddy</li>
           </ul>
-        </section>
-
-        <section class="proof" aria-label="In use">
-          <figure class="photo-frame">
-            <img
-              class="photo"
-              src="images/caddy-hook-in-use.jpg"
-              alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
-              width="1500"
-              height="2000"
-            />
-            <figcaption class="spec">
-              In place — caddy hung inside the wheelie bin, off the ground.
-            </figcaption>
-          </figure>
         </section>
 
         <section class="buy" aria-label="Buy">
@@ -179,5 +181,50 @@
         <a href="mailto:hello@niftyprints.co.uk">hello@niftyprints.co.uk</a>
       </p>
     </footer>
+
+    <script>
+      // Progressive enhancement: swipe/scroll works without JS; this just
+      // highlights the active dot and lets dots scroll the gallery.
+      (function () {
+        var track = document.querySelector(".gallery__track");
+        if (!track) return;
+        var slides = Array.prototype.slice.call(
+          track.querySelectorAll(".gallery__slide")
+        );
+        var dots = Array.prototype.slice.call(
+          document.querySelectorAll(".gallery__dot")
+        );
+        if (!slides.length || !dots.length) return;
+
+        dots.forEach(function (dot, i) {
+          dot.addEventListener("click", function (e) {
+            e.preventDefault();
+            slides[i].scrollIntoView({
+              behavior: "smooth",
+              inline: "center",
+              block: "nearest",
+            });
+          });
+        });
+
+        if ("IntersectionObserver" in window) {
+          var io = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var idx = slides.indexOf(entry.target);
+                dots.forEach(function (d, di) {
+                  d.classList.toggle("is-active", di === idx);
+                });
+              });
+            },
+            { root: track, threshold: 0.6 }
+          );
+          slides.forEach(function (s) {
+            io.observe(s);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>

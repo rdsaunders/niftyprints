@@ -9,7 +9,6 @@
 :root {
   /* Palette */
   --ground: #EEF1EA;
-  --ground-deep: #E4E8DF;
   --text: #18241C;
   --text-soft: #4A5A50;
   --accent: #2F7D4F;
@@ -144,47 +143,12 @@ main { display: block; }
   max-width: 30rem;
 }
 
-/* --- Product photo / placeholder --------------------------- */
-.photo-frame {
-  margin: 0;
-}
-
+/* --- Product photo ----------------------------------------- */
 .photo,
 img.photo {
   display: block;
   width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 2px;
-}
-
-/* Placeholder box (div.photo): layer-line texture until a real photo lands. */
-div.photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 4 / 3;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      var(--ground-deep) 0,
-      var(--ground-deep) 6px,
-      var(--ground) 6px,
-      var(--ground) 9px
-    );
-}
-
-/* Real photos display at their natural aspect ratio. */
-img.photo {
   height: auto;
-}
-
-.photo__note {
-  font-family: var(--mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
-  color: var(--text-soft);
-  background: var(--ground);
-  padding: 0.35em 0.7em;
   border: 1px solid var(--line);
   border-radius: 2px;
 }
@@ -195,6 +159,62 @@ img.photo {
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
   color: var(--text-soft);
+}
+
+/* --- Photo gallery (CSS scroll-snap; swipeable, no JS required) --- */
+.gallery {
+  margin: 0;
+}
+
+.gallery__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--s2);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  overscroll-behavior-x: contain;
+}
+
+.gallery__track::-webkit-scrollbar {
+  display: none; /* Safari/Chrome */
+}
+
+.gallery__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+}
+
+.gallery__slide .photo {
+  aspect-ratio: 3 / 4;
+  height: auto;
+  object-fit: cover;
+}
+
+.gallery__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--s1);
+  margin-top: var(--s2);
+}
+
+.gallery__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--line);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.25);
 }
 
 /* --- Features ---------------------------------------------- */
