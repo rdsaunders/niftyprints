@@ -166,6 +166,11 @@ img.photo {
   margin: 0;
 }
 
+/* Positioning context for the overlaid prev/next arrows. */
+.gallery__frame {
+  position: relative;
+}
+
 .gallery__track {
   list-style: none;
   margin: 0;
@@ -184,15 +189,75 @@ img.photo {
   display: none; /* Safari/Chrome */
 }
 
+/* Slides are < 100% wide so the next photo peeks in at the edge — the
+   clearest signal that the gallery scrolls. */
 .gallery__slide {
-  flex: 0 0 100%;
-  scroll-snap-align: center;
+  flex: 0 0 88%;
+  scroll-snap-align: start;
+}
+
+.gallery__slide:last-child {
+  /* Lets the final slide snap flush to the right edge with no trailing gap. */
+  margin-right: 12%;
 }
 
 .gallery__slide .photo {
   aspect-ratio: 3 / 4;
   height: auto;
   object-fit: cover;
+}
+
+/* --- Prev/next arrows (shown only when JS enhances the gallery) --- */
+.gallery__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(238, 241, 234, 0.9);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 1px 4px rgba(24, 36, 28, 0.15);
+  transition:
+    background 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.gallery__nav:hover {
+  background: var(--ground);
+}
+
+.gallery__nav--prev {
+  left: var(--s2);
+}
+
+.gallery__nav--next {
+  /* Sit over the active photo's edge, clear of the peeking next slide. */
+  right: calc(12% + var(--s1));
+}
+
+.gallery__nav[hidden] {
+  display: none;
+}
+
+.gallery__count {
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.gallery__count::after {
+  content: " · ";
+  color: var(--line);
 }
 
 .gallery__dots {

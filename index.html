@@ -104,32 +104,50 @@
           </p>
 
           <figure class="gallery" aria-label="Product photos">
-            <ul class="gallery__track">
-              <li class="gallery__slide" id="photo-1">
-                <img
-                  class="photo"
-                  src="images/caddy-hook.jpg"
-                  alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
-                  width="1500"
-                  height="2000"
-                />
-              </li>
-              <li class="gallery__slide" id="photo-2">
-                <img
-                  class="photo"
-                  src="images/caddy-hook-in-use.jpg"
-                  alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
-                  width="1500"
-                  height="2000"
-                />
-              </li>
-            </ul>
+            <div class="gallery__frame">
+              <ul class="gallery__track">
+                <li class="gallery__slide" id="photo-1">
+                  <img
+                    class="photo"
+                    src="images/caddy-hook-in-use.jpg"
+                    alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
+                    width="1500"
+                    height="2000"
+                  />
+                </li>
+                <li class="gallery__slide" id="photo-2">
+                  <img
+                    class="photo"
+                    src="images/caddy-hook.jpg"
+                    alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
+                    width="1500"
+                    height="2000"
+                  />
+                </li>
+              </ul>
+              <button
+                type="button"
+                class="gallery__nav gallery__nav--prev"
+                aria-label="Previous photo"
+                hidden
+              >
+                <span aria-hidden="true">‹</span>
+              </button>
+              <button
+                type="button"
+                class="gallery__nav gallery__nav--next"
+                aria-label="Next photo"
+              >
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
             <div class="gallery__dots" aria-label="Choose photo">
-              <a class="gallery__dot is-active" href="#photo-1" aria-label="Photo 1, studio shot"></a>
-              <a class="gallery__dot" href="#photo-2" aria-label="Photo 2, in use"></a>
+              <a class="gallery__dot is-active" href="#photo-1" aria-label="Photo 1, in use"></a>
+              <a class="gallery__dot" href="#photo-2" aria-label="Photo 2, studio shot"></a>
             </div>
             <figcaption class="spec">
-              PETG · weather-resistant · made to order — swipe for more
+              <span class="gallery__count" aria-hidden="true">1 / 2</span>
+              PETG · weather-resistant · made to order
             </figcaption>
           </figure>
         </section>
@@ -183,8 +201,9 @@
     </footer>
 
     <script>
-      // Progressive enhancement: swipe/scroll works without JS; this just
-      // highlights the active dot and lets dots scroll the gallery.
+      // Progressive enhancement: swipe/scroll works without JS. This adds the
+      // prev/next arrows, keeps the active dot + counter in sync, and lets the
+      // dots scroll the gallery.
       (function () {
         var track = document.querySelector(".gallery__track");
         if (!track) return;
@@ -196,26 +215,56 @@
         );
         if (!slides.length || !dots.length) return;
 
+        var prevBtn = document.querySelector(".gallery__nav--prev");
+        var nextBtn = document.querySelector(".gallery__nav--next");
+        var count = document.querySelector(".gallery__count");
+        var current = 0;
+
+        function goTo(i) {
+          i = Math.max(0, Math.min(slides.length - 1, i));
+          slides[i].scrollIntoView({
+            behavior: "smooth",
+            inline: "start",
+            block: "nearest",
+          });
+        }
+
+        function setActive(idx) {
+          current = idx;
+          dots.forEach(function (d, di) {
+            d.classList.toggle("is-active", di === idx);
+          });
+          if (count) count.textContent = idx + 1 + " / " + slides.length;
+          if (prevBtn) prevBtn.hidden = idx === 0;
+          if (nextBtn) nextBtn.hidden = idx === slides.length - 1;
+        }
+
         dots.forEach(function (dot, i) {
           dot.addEventListener("click", function (e) {
             e.preventDefault();
-            slides[i].scrollIntoView({
-              behavior: "smooth",
-              inline: "center",
-              block: "nearest",
-            });
+            goTo(i);
           });
         });
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            goTo(current - 1);
+          });
+        }
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            goTo(current + 1);
+          });
+        }
+
+        setActive(0);
 
         if ("IntersectionObserver" in window) {
           var io = new IntersectionObserver(
             function (entries) {
               entries.forEach(function (entry) {
                 if (!entry.isIntersecting) return;
-                var idx = slides.indexOf(entry.target);
-                dots.forEach(function (d, di) {
-                  d.classList.toggle("is-active", di === idx);
-                });
+                setActive(slides.indexOf(entry.target));
               });
             },
             { root: track, threshold: 0.6 }
