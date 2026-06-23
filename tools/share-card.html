@@ -1,0 +1,80 @@
+<!doctype html>
+<!--
+  SOURCE for images/share-card.jpg  (Open Graph / Twitter social share card)
+  Edit the copy / CSS below, then regenerate the 1200x630 JPG:
+
+    cd tools
+    CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+    "$CHROME" --headless=new --disable-gpu --hide-scrollbars \
+      --force-device-scale-factor=2 \
+      --screenshot=card@2x.png --window-size=1200,630 \
+      "file://$PWD/share-card.html"
+    magick card@2x.png -resize 1200x630 -strip -interlace JPEG -quality 86 \
+      ../images/share-card.jpg
+    rm card@2x.png
+
+  Rendered at 2x then downscaled so the text stays crisp.
+  Images are referenced relative to this file (../images/…), so the card
+  always reflects the current product photos.
+-->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<style>
+  :root{
+    --ground:#EEF1EA; --text:#18241C; --text-soft:#4A5A50;
+    --accent:#2F7D4F; --line:#C7CFC2;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;}
+  body{
+    display:flex; font-family:var(--sans); background:var(--ground);
+    color:var(--text); overflow:hidden;
+  }
+  .left{
+    flex:1 1 0; display:flex; flex-direction:column; justify-content:space-between;
+    padding:62px 56px 58px 64px;
+  }
+  .brand{ color:var(--accent); font-size:30px; font-weight:600; letter-spacing:-0.01em; }
+  .mid{ margin-top:8px; }
+  h1{
+    font-size:66px; line-height:1.02; font-weight:800; letter-spacing:-0.03em;
+    max-width:14ch;
+  }
+  .sub{
+    margin-top:26px; font-size:27px; line-height:1.34; color:var(--text-soft);
+    max-width:22ch; font-weight:400;
+  }
+  .price{ color:var(--accent); font-size:36px; font-weight:800; letter-spacing:-0.02em; }
+  .right{
+    width:472px; display:flex; flex-direction:column; gap:6px;
+    background:#fff; border-left:1px solid var(--line);
+  }
+  .right figure{ flex:1 1 0; overflow:hidden; position:relative; }
+  .right img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .right .studio img{ object-position:50% 58%; }
+  .right .insitu img{ object-position:42% 30%; }
+  .tag{
+    position:absolute; left:16px; bottom:14px;
+    font-family:var(--sans); font-size:17px; font-weight:600; color:#fff;
+    background:rgba(24,36,28,.62); padding:5px 12px; border-radius:999px;
+    letter-spacing:.01em; backdrop-filter:blur(2px);
+  }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="brand">nifty prints.</div>
+    <div class="mid">
+      <h1>A tidy home for your food caddy.</h1>
+      <p class="sub">Keeps your food-waste caddy off the ground and safe from birds &amp; pests.</p>
+    </div>
+    <div class="price">£5&nbsp;&nbsp;·&nbsp;&nbsp;post or collect</div>
+  </div>
+  <div class="right">
+    <figure class="studio"><img src="../images/caddy-hook.jpg" alt="" /></figure>
+    <figure class="insitu"><img src="../images/caddy-hook-in-use.jpg" alt="" /><span class="tag">On the bin</span></figure>
+  </div>
+</body>
+</html>
