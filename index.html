@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,9 +9,15 @@
     </title>
     <meta
       name="description"
-      content="A 3D-printed hook that hangs your brown food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Weather-resistant PETG, no tools needed, local pickup in Newport, South Wales."
+      content="A 3D-printed hook that hangs your brown food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Weather-resistant PETG, no tools needed. UK postage or free pickup in Newport, South Wales."
     />
     <link rel="canonical" href="https://niftyprints.co.uk/" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#2F7D4F" />
 
     <!-- Open Graph (link previews on Facebook, WhatsApp, etc.) -->
     <meta property="og:type" content="website" />
@@ -24,7 +30,7 @@
     />
     <meta
       property="og:description"
-      content="A 3D-printed hook that hangs your food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Weather-resistant PETG, local pickup in Newport, South Wales."
+      content="A 3D-printed hook that hangs your food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Weather-resistant PETG. UK postage or free pickup in Newport, South Wales."
     />
     <meta
       property="og:image"
@@ -34,7 +40,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="The Caddy Hook by Nifty Prints — a tidy home for your food caddy, £5, local pickup"
+      content="The Caddy Hook by Nifty Prints — a tidy home for your food caddy. UK postage or free Newport pickup."
     />
 
     <!-- Twitter Card -->
@@ -45,7 +51,7 @@
     />
     <meta
       name="twitter:description"
-      content="A 3D-printed hook that hangs your food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. Local pickup in Newport, South Wales."
+      content="A 3D-printed hook that hangs your food-waste caddy inside the wheelie bin — off the ground and safe from birds and pests. UK postage or free Newport pickup."
     />
     <meta
       name="twitter:image"
@@ -72,11 +78,144 @@
           "availability": "https://schema.org/InStock",
           "itemCondition": "https://schema.org/NewCondition",
           "url": "https://niftyprints.co.uk/",
-          "availableDeliveryMethod": "https://schema.org/OnSitePickup",
-          "areaServed": { "@type": "City", "name": "Newport, South Wales" }
+          "availableDeliveryMethod": [
+            "https://schema.org/ParcelService",
+            "https://schema.org/OnSitePickup"
+          ],
+          "areaServed": { "@type": "Country", "name": "United Kingdom" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "3.50",
+              "currency": "GBP"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "GB"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 2,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "GB",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted"
+          }
         }
       }
     </script>
+
+    <!-- Organization entity: brand, maker, location, contact. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Nifty Prints",
+        "url": "https://niftyprints.co.uk/",
+        "email": "hello@niftyprints.co.uk",
+        "founder": { "@type": "Person", "name": "Richard Saunders" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Newport",
+          "addressRegion": "South Wales",
+          "addressCountry": "GB"
+        }
+      }
+    </script>
+
+    <!-- FAQ structured data (mirrors the visible FAQ in the page body). -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Will it fit my food caddy and bin?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — it's designed for standard UK kerbside food-waste caddies and wheelie / garden-waste bins. It simply hooks over the bin rim: no tools, no drilling, no modifications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it weatherproof? Will it last outside?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It's printed in PETG, a tough, UV- and weather-resistant plastic, so it's built to live outdoors all year round."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is it delivered and how long does it take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Each hook is made to order and ships in 1–3 working days. At checkout you can choose UK postage (£3.50, 2–5 working days) or free local pickup in Newport, South Wales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I buy more than one?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — there's a 3-pack for £12 (£4 each), which is handy for sharing with neighbours or gifting."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What if it arrives faulty or damaged?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As each hook is made to order I can't accept change-of-mind returns, but if it arrives faulty or damaged I'll replace it or refund you in full — just get in touch within 30 days."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is it made from?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PETG — a durable, recyclable plastic. Each hook is printed to order, so nothing is mass-produced or wasted."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- Review / rating structured data — TEMPLATE, intentionally disabled.
+         Enable ONLY when you have genuine customer ratings. Move these into the
+         Product schema's "offers" sibling (i.e. inside the first ld+json block,
+         alongside "offers"), set real values, then add one "review" entry per
+         customer. ratingValue must reflect ratings customers actually gave.
+
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "reviewCount": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "First name" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "reviewBody": "Their actual words here."
+      }
+    ]
+    -->
 
     <!-- Stripe Buy Button script: required for the <stripe-buy-button> element below. -->
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
@@ -114,6 +253,8 @@
                     alt="The hook holding a brown food-waste caddy hung inside a green wheelie bin"
                     width="1500"
                     height="2000"
+                    fetchpriority="high"
+                    decoding="async"
                   />
                 </li>
                 <li class="gallery__slide" id="photo-2">
@@ -123,6 +264,8 @@
                     alt="The Caddy Hook — a curved PETG channel with a square tab that grips the bin rim"
                     width="1500"
                     height="2000"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </li>
               </ul>
@@ -143,8 +286,16 @@
               </button>
             </div>
             <div class="gallery__dots" aria-label="Choose photo">
-              <a class="gallery__dot is-active" href="#photo-1" aria-label="Photo 1, in use"></a>
-              <a class="gallery__dot" href="#photo-2" aria-label="Photo 2, studio shot"></a>
+              <a
+                class="gallery__dot is-active"
+                href="#photo-1"
+                aria-label="Photo 1, in use"
+              ></a>
+              <a
+                class="gallery__dot"
+                href="#photo-2"
+                aria-label="Photo 2, studio shot"
+              ></a>
             </div>
             <figcaption class="spec">
               <span class="gallery__count" aria-hidden="true">1 / 2</span>
@@ -168,41 +319,170 @@
         </section>
 
         <section class="buy" aria-label="Buy">
-          <!-- Keep this price matching the price set on the Stripe Buy Button. -->
-          <p class="price">
-            <span class="price__amount">£5</span>
-            <span class="price__unit">each</span>
-          </p>
+          <div class="tiers">
+            <div class="tier">
+              <p class="tier__name">Single</p>
+              <p class="price">
+                <span class="price__amount">£5</span>
+                <span class="price__unit">each</span>
+              </p>
+              <div class="buy__action">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1TlS36Bm9drVFLOF5UlvCjtW"
+                  publishable-key="pk_live_51TkjgvBm9drVFLOF3KQcNZ3Kb9MvBaBqbZlK41JebzKu0z5zrqTgagpFXErjPgatODrAafPLUkajmtN0Js15qB4h00dPuyDahI"
+                >
+                </stripe-buy-button>
+              </div>
+            </div>
 
-          <div class="buy__action">
-            <!-- Replace buy-button-id and publishable-key with the values from your
-               Stripe Dashboard (Payment Links → Buy button). Both are safe to be public. -->
-            <stripe-buy-button
-              buy-button-id="buy_btn_1Tkt0ZBm9drVFLOF0fFBwpGv"
-              publishable-key="pk_live_51TkjgvBm9drVFLOF3KQcNZ3Kb9MvBaBqbZlK41JebzKu0z5zrqTgagpFXErjPgatODrAafPLUkajmtN0Js15qB4h00dPuyDahI"
-            >
-            </stripe-buy-button>
+            <div class="tier tier--featured">
+              <p class="badge">Best value</p>
+              <p class="tier__name">3-pack</p>
+              <p class="price">
+                <span class="price__amount">£12</span>
+                <span class="price__unit">for 3</span>
+              </p>
+              <p class="tier__detail">£4 each — save 20%</p>
+              <div class="buy__action">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1TlS9iBm9drVFLOFfaXFfU5z"
+                  publishable-key="pk_live_51TkjgvBm9drVFLOF3KQcNZ3Kb9MvBaBqbZlK41JebzKu0z5zrqTgagpFXErjPgatODrAafPLUkajmtN0Js15qB4h00dPuyDahI"
+                >
+                </stripe-buy-button>
+              </div>
+            </div>
           </div>
 
+          <p class="secure">
+            <span class="secure__icon" aria-hidden="true">🔒</span>
+            Secure checkout powered by Stripe.
+          </p>
+
           <p class="pickup">
-            Local pickup only, in Newport, South Wales. After you pay, I'll
-            email or WhatsApp you to arrange collection.
+            <strong>Made to order</strong> — ships in 1–3 working days. At
+            checkout, choose <strong>UK postage</strong> (£3.50, 2–5 working
+            days) or <strong>free local pickup</strong> in Newport, South Wales.
+            For pickup, I'll email or WhatsApp you to arrange collection.
+          </p>
+          <p class="policy">
+            As each hook is made to order just for you, I can't accept returns
+            for a change of mind. But if it arrives faulty or damaged, I'll
+            replace it or refund you in full — just get in touch within 30 days.
           </p>
         </section>
       </article>
       <!-- ===== /Product card ===== -->
+
+      <!-- ===== Customer reviews =====================================
+           HIDDEN until there are real reviews to show. To publish:
+             1. Uncomment the <section> below.
+             2. Duplicate a <figure class="review"> per customer and replace
+                the EXAMPLE text with their actual words + first name / area.
+             3. Star ratings? Only once customers actually give them — then
+                also enable the Review/AggregateRating template in <head>.
+                Never publish ratings you didn't receive (Google penalises it).
+      ============================================================== -->
+      <!--
+      <section class="proof" aria-labelledby="proof-title">
+        <h2 class="proof__title" id="proof-title">What people say</h2>
+        <ul class="proof__list">
+          <li>
+            <figure class="review">
+              <blockquote class="review__quote">
+                <p>EXAMPLE — replace with a real customer comment.</p>
+              </blockquote>
+              <figcaption class="review__by">— First name, Newport</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="review">
+              <blockquote class="review__quote">
+                <p>EXAMPLE — a second comment, to show how they stack.</p>
+              </blockquote>
+              <figcaption class="review__by">— First name, Caerleon</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+      -->
+
+      <!-- ===== Press / "as featured in" ============================
+           READY for the local paper piece. When it's published, uncomment
+           and set the article URL, publication name and headline.
+      ============================================================== -->
+      <!--
+      <aside class="press" aria-label="Press coverage">
+        <p class="press__label">As featured in</p>
+        <p class="press__item">
+          <a href="ARTICLE_URL">Publication name</a> — “Headline of the piece”
+        </p>
+      </aside>
+      -->
+
+      <section class="faq" aria-labelledby="faq-title">
+        <h2 class="faq__title" id="faq-title">Questions &amp; answers</h2>
+        <dl class="faq__list">
+          <div class="faq__item">
+            <dt>Will it fit my food caddy and bin?</dt>
+            <dd>
+              Yes — it's designed for standard UK kerbside food-waste caddies and
+              wheelie / garden-waste bins. It simply hooks over the bin rim: no
+              tools, no drilling, no modifications.
+            </dd>
+          </div>
+          <div class="faq__item">
+            <dt>Is it weatherproof? Will it last outside?</dt>
+            <dd>
+              Yes. It's printed in PETG, a tough, UV- and weather-resistant
+              plastic, so it's built to live outdoors all year round.
+            </dd>
+          </div>
+          <div class="faq__item">
+            <dt>How is it delivered and how long does it take?</dt>
+            <dd>
+              Each hook is made to order and ships in 1–3 working days. At
+              checkout you can choose UK postage (£3.50, 2–5 working days) or
+              free local pickup in Newport, South Wales.
+            </dd>
+          </div>
+          <div class="faq__item">
+            <dt>Can I buy more than one?</dt>
+            <dd>
+              Yes — there's a 3-pack for £12 (£4 each), which is handy for
+              sharing with neighbours or gifting.
+            </dd>
+          </div>
+          <div class="faq__item">
+            <dt>What if it arrives faulty or damaged?</dt>
+            <dd>
+              As each hook is made to order I can't accept change-of-mind
+              returns, but if it arrives faulty or damaged I'll replace it or
+              refund you in full — just get in touch within 30 days.
+            </dd>
+          </div>
+          <div class="faq__item">
+            <dt>What is it made from?</dt>
+            <dd>
+              PETG — a durable, recyclable plastic. Each hook is printed to
+              order, so nothing is mass-produced or wasted.
+            </dd>
+          </div>
+        </dl>
+      </section>
     </main>
 
-    <!-- Contact footer hidden until hello@niftyprints.co.uk is live (e.g. email
-         forwarding at the registrar). Uncomment this whole block to bring it back. -->
-    <!--
     <footer class="site-foot">
-      <p>
+      <p class="site-foot__maker">
+        Designed and 3D-printed by hand by Richard Saunders in Newport, South
+        Wales.
+      </p>
+      <p class="site-foot__contact">
         Questions?
         <a href="mailto:hello@niftyprints.co.uk">hello@niftyprints.co.uk</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://wa.me/447739524347">Message me on WhatsApp</a>
       </p>
     </footer>
-    -->
 
     <script>
       // Progressive enhancement: swipe/scroll works without JS. This adds the
@@ -212,10 +492,10 @@
         var track = document.querySelector(".gallery__track");
         if (!track) return;
         var slides = Array.prototype.slice.call(
-          track.querySelectorAll(".gallery__slide")
+          track.querySelectorAll(".gallery__slide"),
         );
         var dots = Array.prototype.slice.call(
-          document.querySelectorAll(".gallery__dot")
+          document.querySelectorAll(".gallery__dot"),
         );
         if (!slides.length || !dots.length) return;
 
@@ -271,7 +551,7 @@
                 setActive(slides.indexOf(entry.target));
               });
             },
-            { root: track, threshold: 0.6 }
+            { root: track, threshold: 0.6 },
           );
           slides.forEach(function (s) {
             io.observe(s);

@@ -1,0 +1,23 @@
+{
+  // Run with the "Run Build Task" command (Cmd+Shift+B / Ctrl+Shift+B).
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Preview (live-server)",
+      "detail": "Serve the site locally with hot reload via npx live-server",
+      "type": "shell",
+      "command": "npx --yes live-server",
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}

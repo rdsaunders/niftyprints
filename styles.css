@@ -310,6 +310,69 @@ img.photo {
 }
 
 /* --- Buy --------------------------------------------------- */
+.tiers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--s2);
+  margin: 0 0 var(--s3);
+}
+
+@media (max-width: 32rem) {
+  .tiers { grid-template-columns: 1fr; }
+}
+
+.tier {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s3) var(--s2) var(--s2);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tier--featured {
+  border-color: var(--accent);
+  border-width: 2px;
+}
+
+.badge {
+  position: absolute;
+  top: 0;
+  right: var(--s2);
+  transform: translateY(-50%);
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.tier__name {
+  margin: 0 0 var(--s1);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.tier__detail {
+  margin: 0 0 var(--s3);
+  font-size: 0.875rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Inside a tier the price sits tighter to the label; the action is pinned
+   to the bottom so both cards' buttons line up. */
+.tier .price { margin-bottom: var(--s2); }
+.tier .buy__action { margin-top: auto; margin-bottom: 0; }
+
 .price {
   margin: 0 0 var(--s3);
   display: flex;
@@ -334,11 +397,135 @@ img.photo {
   min-height: 2.75rem;
 }
 
+.secure {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 var(--s3);
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+  color: var(--text-soft);
+}
+
+.secure__icon { font-size: 0.875rem; }
+
 .pickup {
   margin: 0;
   font-size: 0.9375rem;
   color: var(--text-soft);
   max-width: 28rem;
+}
+
+.policy {
+  margin: var(--s3) 0 0;
+  padding-top: var(--s3);
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  max-width: 28rem;
+}
+
+/* --- Reviews / proof --------------------------------------- */
+.proof {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--s4) var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.proof__title {
+  margin: 0 0 var(--s3);
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.proof__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--s3);
+}
+
+.review {
+  margin: 0;
+  padding-left: var(--s2);
+  border-left: 3px solid var(--accent);
+}
+
+.review__quote {
+  margin: 0 0 var(--s1);
+  font-size: 1.0625rem;
+}
+.review__quote p { margin: 0; }
+
+.review__by {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--text-soft);
+}
+
+/* --- Press / "as featured in" ------------------------------ */
+.press {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.press__label {
+  margin: 0 0 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.press__item {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* --- FAQ --------------------------------------------------- */
+.faq {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: var(--s4) var(--s3);
+  border-top: 1px solid var(--line);
+}
+
+.faq__title {
+  margin: 0 0 var(--s3);
+  font-size: 1.375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.faq__list { margin: 0; }
+
+.faq__item {
+  padding: var(--s3) 0;
+  border-top: 1px solid var(--line);
+}
+.faq__item:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+.faq__item:last-child { padding-bottom: 0; }
+
+.faq__item dt {
+  margin: 0 0 var(--s1);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.faq__item dd {
+  margin: 0;
+  color: var(--text-soft);
+  max-width: 34rem;
 }
 
 /* --- Footer ------------------------------------------------ */
@@ -353,6 +540,8 @@ img.photo {
 }
 
 .site-foot p { margin: 0; }
+.site-foot p.site-foot__maker { margin-bottom: var(--s1); color: var(--text); }
+.site-foot__contact a { white-space: nowrap; }
 
 /* --- Focus / accessibility --------------------------------- */
 a:focus-visible,

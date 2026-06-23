@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://niftyprints.co.uk/sitemap.xml
