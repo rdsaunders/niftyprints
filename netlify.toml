@@ -1,0 +1,6 @@
+# Netlify has no .netlifyignore — only files left in the publish directory
+# get deployed. This build step removes repo-only tooling (the share-card
+# source and its docs) before publish, so it never reaches the CDN.
+[build]
+  publish = "."
+  command = "rm -rf tools"
